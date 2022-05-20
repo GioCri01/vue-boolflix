@@ -4,7 +4,7 @@
           <img src="https://www.romait.it/wp-content/uploads/2022/04/Netflix-logo.jpg" alt="">
           <div class="d-flex ">
               <input type="text" placeholder="cerca film" class="form-control mx-2">
-              <button class="btn bg-danger"> asd</button>
+              <button class="btn bg-danger"> Cerca</button>
           </div>
       
   </div>
@@ -30,3 +30,6 @@ header{
 
 
 </style>
+
+
+//c182b8dc206ed121416b5cf16ae6a95c
