@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderComp/>
+    <HeaderComp @search="findMovies"/>
     <MainComp
     
     :movieList="arrMovies"
@@ -25,18 +25,18 @@ export default {
     return{
       baseApi: "https://api.themoviedb.org/3/search/movie?api_key=c182b8dc206ed121416b5cf16ae6a95c&language=it-IT",
       arrMovies: [],
+      query:"",
+      
 
     }
   },
-  mounted(){
-    this.getApi()
-  },
+  
 
   methods:{
     getApi(){
       axios.get(this.baseApi,{
         params:{
-          query: "harry potter"
+          query: this.query
         }
       })
       .then(res =>{
@@ -44,8 +44,20 @@ export default {
         this.arrMovies = res.data.results
         console.log(this.arrMovies);
       })
+    },
+    findMovies(searchMovie){
+        this.query = searchMovie
+        this.getApi()
+        console.log(this.query);
+      
+
     }
-  }
+
+    
+
+  },
+
+  
 }
 </script>
 

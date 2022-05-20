@@ -3,8 +3,8 @@
       <div class="container-fluid d-flex justify-content-between align-items-center">
           <img src="https://www.romait.it/wp-content/uploads/2022/04/Netflix-logo.jpg" alt="">
           <div class="d-flex ">
-              <input type="text" placeholder="cerca film" class="form-control mx-2">
-              <button class="btn bg-danger"> Cerca</button>
+              <input  v-model.trim="searchMovie" type="text" placeholder="cerca film" class="form-control mx-2">
+              <button @click="$emit('search',searchMovie)" class="btn bg-danger" > Cerca</button>
           </div>
       
   </div>
@@ -14,6 +14,12 @@
 <script>
 export default {
     name: "HeaderComp",
+
+    data(){
+        return{
+            searchMovie:"",
+        }
+    }
 
 }
 </script>
@@ -32,4 +38,3 @@ header{
 </style>
 
 
-//c182b8dc206ed121416b5cf16ae6a95c
