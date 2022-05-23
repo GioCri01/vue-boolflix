@@ -3,7 +3,15 @@
       <div class="container-fluid d-flex justify-content-between align-items-center">
           <img src="https://www.romait.it/wp-content/uploads/2022/04/Netflix-logo.jpg" alt="">
           <div class="d-flex ">
-              <input  v-model.trim="searchMovie" type="text" placeholder="cerca film" class="form-control mx-2">
+              <select 
+              v-model="selectedOption"
+               @change="$emit('filter',selectedOption )"
+                class="form-control">
+                    <option disabled value="" >Filtra per Genere:</option>
+                  <option value="movie" selected >film</option>
+                  <option  value="tv">serie Tv</option>
+              </select>
+              <input @keyup.enter="$emit('search',searchMovie)" v-model.trim="searchMovie" type="text" placeholder="cerca film" class="form-control mx-2">
               <button @click="$emit('search',searchMovie)" class="btn bg-danger" > Cerca</button>
           </div>
       
@@ -18,6 +26,7 @@ export default {
     data(){
         return{
             searchMovie:"",
+            selectedOption :""
         }
     }
 
