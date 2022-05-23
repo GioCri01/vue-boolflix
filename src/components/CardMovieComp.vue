@@ -1,12 +1,15 @@
 <template>
-
-          <div v-if="filterApi === 'movie'" class="box position-relative">
+        
+            <div v-if="filterApi === ''|| filterApi ==='movie'" class="box position-relative">
+                <img v-show="movieItem.poster_path === null" src="https://www.ibs.it/images/9788872265703_0_0_350_75.jpg" :alt="movieItem.title">
               <img :src="`https://image.tmdb.org/t/p/w500/${movieItem.poster_path}`" :alt="movieItem.title">
               <div class="box-info">
+                  
                 <h2>{{movieItem.title}}</h2>
                 <p>{{movieItem.original_title}}</p>
                 <p>{{movieItem.release_date}}</p>
-                <p >{{movieItem.overview}}</p>
+                <div class="overview"><p >{{movieItem.overview}}</p></div>
+                
                 <p><lang-flag :iso="movieItem.original_language" /></p>
                 <p>{{movieItem.original_language}}</p>
                 <p>Valutazione : {{movieItem.vote_average}} su 10</p>
@@ -19,13 +22,14 @@
                 <h2>{{movieItem.name}}</h2>
                 <p>{{movieItem.original_name}}</p>
                 <p>{{movieItem.first_air_date}}</p>
-                <p >{{movieItem.overview}}</p>
+                <div class="overview"><p >{{movieItem.overview}}</p></div>
                 <p><lang-flag :iso="movieItem.original_language" /></p>
                 <p>{{movieItem.original_language}}</p>
                 <p>Valutazione : {{movieItem.vote_average}} su 10</p>
               </div>
               
             </div>
+       
 
             
           
@@ -53,16 +57,18 @@ export default {
  
 <style lang="scss" scoped>
  .box{
-        width: calc(100%/ 4 - 30px);
+        width: calc(100%/ 5 - 30px);
         
-        padding: 15px;
+        
         margin: 15px;
         background-color: rgba(0, 0, 0, 0.274);
-        border-radius:10px ;
+       
         transition: all 0.3s;
 
         img{
         width: 100%;
+        height: 100%;
+        
         }
         &:hover{
             transform: scale(1.08);
@@ -84,15 +90,21 @@ export default {
         left: 0;
         width: 100%;
         height: 100%;
-        border-radius: 10px;
+        cursor: pointer;
         padding: 10px;
         background-color: rgba(0, 0, 0, 0.774);
         display: none;
-        overflow: hidden;
-        overflow-y:scroll ;
+        
         transition: all 0.3s;
         
-        
+        .overview{
+            
+            width: 100%;
+            height: 200px;
+            margin-bottom:10px ;
+            overflow: hidden;
+            overflow-y: auto;
+        }
         
     }
     

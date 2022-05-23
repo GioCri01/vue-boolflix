@@ -3,12 +3,13 @@
     <HeaderComp 
     @search="findMovies"
     @filter="ChangeOption"
+    :popularApi="getDefaultAPI"
     
     />
     <MainComp
     
     :movieList="arrMovies"
-    :FilterValue=" optionValue"
+    :FilterValue="optionValue"
     
     />
   </div>

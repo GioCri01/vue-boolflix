@@ -1,6 +1,6 @@
 <template>
   <main >
-      <div class="container d-flex flex-wrap py-5 ">
+      <div class="container-fluid d-flex flex-wrap py-5 ">
           <CardMovieComp
       v-for="(movie,index) in movieList"
       :key="`movie-${index}`"
@@ -26,6 +26,7 @@ export default {
     props:{
         movieList : Array,
         FilterValue :String,
+        
     }
 
 }

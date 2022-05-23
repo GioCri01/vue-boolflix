@@ -1,13 +1,13 @@
 <template>
   <header>
       <div class="container-fluid d-flex justify-content-between align-items-center">
-          <img src="https://www.romait.it/wp-content/uploads/2022/04/Netflix-logo.jpg" alt="">
+          <img  @click="resetInput()" src="https://www.romait.it/wp-content/uploads/2022/04/Netflix-logo.jpg" alt="">
           <div class="d-flex ">
               <select 
               v-model="selectedOption"
                @change="$emit('filter',selectedOption )"
                 class="form-control">
-                    <option disabled value="" >Filtra per Genere:</option>
+                    <option  value="" >Filtra per Genere:</option>
                   <option value="movie" selected >film</option>
                   <option  value="tv">serie Tv</option>
               </select>
@@ -28,7 +28,18 @@ export default {
             searchMovie:"",
             selectedOption :""
         }
+    },
+    props:{
+        popularApi : Function,
+    },
+
+    methods:{
+        resetInput(){
+            this.popularApi()
+            this.searchMovie = ""
+        }
     }
+    
 
 }
 </script>
@@ -39,6 +50,7 @@ header{
     background-color: black;
     img{
         width: 175px;
+        cursor: pointer;
     }
     
 }
