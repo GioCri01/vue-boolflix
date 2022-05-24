@@ -1,5 +1,11 @@
 <template>
   <main >
+      
+       
+      
+      
+      
+
       <div class="container-fluid d-flex flex-wrap py-5 ">
           <CardMovieComp
       v-for="(movie,index) in movieList"
@@ -17,11 +23,13 @@
 
 import CardMovieComp from "./CardMovieComp.vue"
 
+
 export default {
     name: "MainComp",
     components:{
-        CardMovieComp,
-    },
+    CardMovieComp,
+   
+},
 
     props:{
         movieList : Array,
@@ -35,8 +43,9 @@ export default {
 <style lang="scss" scoped>
 main{
     
+     background-color: rgba(0, 0, 0, 0.904);
     
-    background-color: rgba(0, 0, 0, 0.904);
+   
     
 
    

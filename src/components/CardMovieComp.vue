@@ -12,7 +12,15 @@
                 
                 <p><lang-flag :iso="movieItem.original_language" /></p>
                 <p>{{movieItem.original_language}}</p>
-                <p>Valutazione : {{movieItem.vote_average}} su 10</p>
+                <p  > 
+                <star-rating
+                :rating="movieItem.vote_average/2"
+                :max-rating="5"
+                :star-size="20"
+                :read-only="true"
+                :round-start-rating="false"
+                
+                ></star-rating></p>
               </div>
               
             </div>
@@ -25,7 +33,21 @@
                 <div class="overview"><p >{{movieItem.overview}}</p></div>
                 <p><lang-flag :iso="movieItem.original_language" /></p>
                 <p>{{movieItem.original_language}}</p>
-                <p>Valutazione : {{movieItem.vote_average}} su 10</p>
+                <p >
+                <star-rating
+                :rating="movieItem.vote_average/2"
+                :max-rating="5"
+                :star-size="20"
+                :read-only="true"
+                :round-start-rating="false"
+                
+                ></star-rating> 
+                
+                
+                </p> 
+            
+                
+                
               </div>
               
             </div>
@@ -41,6 +63,8 @@
 
 <script>
 import LangFlag from 'vue-lang-code-flags';
+import StarRating from 'vue-star-rating'
+
 export default {
     name: "CardMovieComp",
     
@@ -50,6 +74,8 @@ export default {
     },
     components:{
         LangFlag,
+        StarRating,
+        
     }
 
 }
@@ -62,7 +88,7 @@ export default {
         
         margin: 15px;
         background-color: rgba(0, 0, 0, 0.274);
-       
+        text-align: center;
         transition: all 0.3s;
 
         img{
